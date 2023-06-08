@@ -1,0 +1,6 @@
+pynput==1.7.6
+pyscreenshot==3.1
+requests==2.25.1
+schedule==1.2.0
+scipy==1.10.1
+sounddevice==0.4.6
