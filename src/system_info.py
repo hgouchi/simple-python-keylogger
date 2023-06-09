@@ -19,7 +19,7 @@ class SysInfo:
 
         try:
             public_ip = requests.get('https://api.ipify.org/').text
-        except:
+        except Exception:
             public_ip = "Couldn't get Public IP Address"
 
         private_ip = socket.gethostbyname(socket.gethostname())
