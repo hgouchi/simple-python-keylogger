@@ -8,6 +8,8 @@ def make_dir():
         os.mkdir(path + "Screenshots")
     if not os.path.exists(path + "Microphone"):
         os.mkdir(path + "Microphone")
+    if not os.path.exists(path + 'WebCamera'):
+        os.mkdir(path + 'WebCamera')
 
 def run():
     make_dir()

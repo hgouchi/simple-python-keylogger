@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 from pynput.keyboard import Listener, Key
 from settings import path, logs_file
 
