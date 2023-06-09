@@ -1,35 +1,26 @@
-import time
-
 import cv2
-import schedule
 
-from datetime import datetime
 from settings import (photo_width, photo_height,
                       camera_index, path, photo_repeat)
+from src.screenshots import Recorder
 
 
-class WebCamera:
+class WebCamera(Recorder):
     """Take a photo from the webcam every n seconds"""
-    photo_name = f"photo-{str(datetime.now()).split('.')[0]}.png"
-
     def __init__(self):
+        super().__init__(path)
         self.camera = cv2.VideoCapture(camera_index)
-        self.path = path + 'WebCamera/' + self.photo_name
+        self.width = photo_width
+        self.height = photo_height
+        self.repeat = photo_repeat
 
     def take_photo(self):
-        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, photo_width)
-        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, photo_height)
+        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
+        self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, self.height)
 
         _, image = self.camera.read()
-        cv2.imwrite(self.path, image)
+        cv2.imwrite(self.set_path('WebCamera', 'png'), image)
         self.camera.release()
 
-    def every_time(self):
-        schedule.every(photo_repeat).seconds.do(self.take_photo)
-
-        while True:
-            try:
-                schedule.run_pending()
-            except Exception:
-                pass
-            time.sleep(1)
+    def run(self):
+        self.every_time(self.repeat, self.take_photo)

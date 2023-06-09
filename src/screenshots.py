@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import time
 
 import pyscreenshot as ImageGrab
@@ -9,20 +7,18 @@ from datetime import datetime
 from settings import path, screenshots_repeat
 
 
-class Screenshots:
-    """Take a screenshot every n seconds"""
-    image_name = f"screenshot-{str(datetime.now()).split('.')[0]}.png"
-    path = path + 'Screenshots/' + image_name
+class Recorder:
+    """Class from which other classes inherit"""
+    def __init__(self, user_path):
+        self.path = user_path
 
-    @classmethod
-    def take_screenshot(cls):
-        screenshot = ImageGrab.grab()
-        screenshot.save(cls.path)
+    def set_path(self, folder, format):
+        name = f"{folder}/{str(datetime.now()).split('.')[0]}.{format}"
+        return self.path + name
 
-        return cls.path
-
-    def every_time(self):
-        schedule.every(screenshots_repeat).seconds.do(self.take_screenshot)
+    @staticmethod
+    def every_time(repeat, function):
+        schedule.every(repeat).seconds.do(function)
 
         while True:
             try:
@@ -30,3 +26,19 @@ class Screenshots:
             except Exception:
                 pass
             time.sleep(1)
+
+
+class Screenshots(Recorder):
+    """Take a screenshot every n seconds"""
+    def __init__(self):
+        super().__init__(path)
+        self.repeat = screenshots_repeat
+
+    def take_screenshot(self):
+        screenshot = ImageGrab.grab()
+        screenshot.save(self.set_path('Screenshots', 'png'))
+
+        return self.set_path('Screenshots', 'png')
+
+    def run(self):
+        self.every_time(self.repeat, self.take_screenshot)

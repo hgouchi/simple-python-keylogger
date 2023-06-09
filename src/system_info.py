@@ -22,14 +22,14 @@ class SysInfo:
 
         private_ip = socket.gethostbyname(socket.gethostname())
 
-        self.message = f"Time: {datetime}\nUsername: {user.split('/')[-1]}\nPublic IP: {public_ip}\n" + \
+        self.message = f"\n\nTime: {datetime}\nUsername: {user.split('/')[-1]}\nPublic IP: {public_ip}\n" + \
                     f"Private IP: {private_ip}\nSystem: {system}\nMachine: {machine}\n\n"
 
         self.write_system_info(self.message)
 
     @staticmethod
     def write_system_info(message):
-        with open(path + logs_file, 'w') as f:
+        with open(path + logs_file, 'a') as f:
             f.write(message)
 
     def run(self):
