@@ -24,10 +24,10 @@ class SysInfo:
 
         private_ip = socket.gethostbyname(socket.gethostname())
 
-        self.msg = f"Time: {datetime}\nUsername: {user.split('/')[-1]}\nPublic IP: {public_ip}\n" + \
+        self.message = f"Time: {datetime}\nUsername: {user.split('/')[-1]}\nPublic IP: {public_ip}\n" + \
                     f"Private IP: {private_ip}\nSystem: {system}\nMachine: {machine}\n\n"
 
-        self.write_system_info(self.msg)
+        self.write_system_info(self.message)
 
     @staticmethod
     def write_system_info(message):
