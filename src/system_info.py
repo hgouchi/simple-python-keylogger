@@ -9,6 +9,10 @@ from settings import user, path, logs_file
 
 class SysInfo:
     """Get information about the system"""
+    def __init__(self):
+        self.path = path
+        self.logs = logs_file
+
     def get_system_info(self):
         system = f"{platform.system()} {platform.version()}"
         machine = platform.machine()
@@ -27,9 +31,8 @@ class SysInfo:
 
         self.write_system_info(self.message)
 
-    @staticmethod
-    def write_system_info(message):
-        with open(path + logs_file, 'a') as f:
+    def write_system_info(self, message):
+        with open(self.path + self.logs_file, 'a') as f:
             f.write(message)
 
     def run(self):
