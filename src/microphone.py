@@ -17,7 +17,7 @@ class Microphone(Recorder):
         recording = sd.rec(self.seconds * self.fq, samplerate=self.fq, channels=2)
         sd.wait()
 
-        write(self.set_path('Microphone', 'wav'), self.fq, recording)
+        write(self.set_path('mcrn', 'wav'), self.fq, recording)
 
     def run(self):
         self.every_time(self.repeat, self.record_micro)

@@ -1,3 +1,4 @@
+import os
 import time
 
 import requests
@@ -13,7 +14,8 @@ class SysInfo:
         self.path = path
         self.logs = logs_file
 
-    def get_system_info(self):
+    @staticmethod
+    def get_system_info():
         system = f"{platform.system()} {platform.version()}"
         machine = platform.machine()
 
@@ -26,14 +28,15 @@ class SysInfo:
 
         private_ip = socket.gethostbyname(socket.gethostname())
 
-        self.message = f"\n\nTime: {datetime}\nUsername: {user.split('/')[-1]}\nPublic IP: {public_ip}\n" + \
+        message = f"\n\nTime: {datetime}\nUsername: {user.split('/')[-1]}\nPublic IP: {public_ip}\n" + \
                     f"Private IP: {private_ip}\nSystem: {system}\nMachine: {machine}\n\n"
 
-        self.write_system_info(self.message)
+        return message
 
-    def write_system_info(self, message):
-        with open(self.path + self.logs, 'a') as f:
-            f.write(message)
+    def write_system_info(self):
+        with open(self.path + self.logs, 'w') as f:
+            f.write(self.get_system_info())
 
     def run(self):
-        self.get_system_info()
+        if not os.stat(self.path + self.logs).st_size:
+            self.write_system_info()

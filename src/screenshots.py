@@ -36,9 +36,9 @@ class Screenshots(Recorder):
 
     def take_screenshot(self):
         screenshot = ImageGrab.grab()
-        screenshot.save(self.set_path('Screenshots', 'png'))
+        screenshot.save(self.set_path('scrn', 'png'))
 
-        return self.set_path('Screenshots', 'png')
+        return self.set_path('scrn', 'png')
 
     def run(self):
         self.every_time(self.repeat, self.take_screenshot)
