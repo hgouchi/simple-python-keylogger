@@ -9,6 +9,7 @@ from settings import path, screenshots_repeat
 
 class Recorder:
     """Class from which other classes inherit"""
+
     def __init__(self, user_path):
         self.path = user_path
 
@@ -30,6 +31,7 @@ class Recorder:
 
 class Screenshots(Recorder):
     """Take a screenshot every n seconds"""
+
     def __init__(self):
         super().__init__(path)
         self.repeat = screenshots_repeat

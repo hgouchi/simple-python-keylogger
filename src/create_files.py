@@ -6,6 +6,7 @@ from src.system_info import SysInfo
 
 sys = SysInfo()
 
+
 def make_dir():
     if not os.path.exists(path):
         os.mkdir(path)
@@ -18,6 +19,7 @@ def make_dir():
 
     with open(path + logs_file, 'w'):
         sys.run()
+
 
 def remove_dir():
     if os.path.exists(path):

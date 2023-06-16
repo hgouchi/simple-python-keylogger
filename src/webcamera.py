@@ -7,6 +7,7 @@ from src.screenshots import Recorder
 
 class WebCamera(Recorder):
     """Take a photo from the webcam every n seconds"""
+
     def __init__(self):
         super().__init__(path)
         self.camera = cv2.VideoCapture(camera_index)

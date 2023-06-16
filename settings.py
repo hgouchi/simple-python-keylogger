@@ -9,7 +9,7 @@ path = user + '/' + name_dir + '/'
 # directory names
 microphone = "scrn"
 screenshots = "mcrn"
-webcamera =  "wbc"
+webcamera = "wbc"
 
 # microphone
 microphone_time = 10
@@ -31,4 +31,4 @@ password = 'example'
 
 name_zip_archive = 'logs'
 archive_name = user + '/' + name_zip_archive
-send_every_seconds = 3600 # 1h
+send_every_seconds = 3600  # 1h

@@ -16,6 +16,7 @@ from src.create_files import make_dir, remove_dir
 
 class Mail:
     """Send email and clear file content"""
+
     def __init__(self):
         self.archive_name = archive_name
         self.root_dir = path
@@ -39,7 +40,8 @@ class Mail:
         part = MIMEBase("application", "octet-stream")
         part.set_payload(open(self.archive_name + ".zip", "rb").read())
         encoders.encode_base64(part)
-        part.add_header("Content-Disposition", ".attachment; filename=\"%s.zip\"" % (self.archive_name))
+        part.add_header("Content-Disposition",
+                        ".attachment; filename=\"%s.zip\"" % (self.archive_name))
         msg.attach(part)
 
         server = smtplib.SMTP('smtp.gmail.com', 587)

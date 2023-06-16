@@ -7,6 +7,7 @@ from src.screenshots import Recorder
 
 class Microphone(Recorder):
     """Record microphone every n seconds"""
+
     def __init__(self):
         super().__init__(path)
         self.fq = 44100
@@ -14,7 +15,8 @@ class Microphone(Recorder):
         self.repeat = microphone_repeat
 
     def record_micro(self):
-        recording = sd.rec(self.seconds * self.fq, samplerate=self.fq, channels=2)
+        recording = sd.rec(self.seconds * self.fq,
+                           samplerate=self.fq, channels=2)
         sd.wait()
 
         write(self.set_path('mcrn', 'wav'), self.fq, recording)
