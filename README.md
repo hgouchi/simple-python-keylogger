@@ -8,7 +8,7 @@ Please exercise caution when working with this virus and ensure that you use it 
 
 - Keylogging: The virus tracks and logs keystrokes made on the infected computer.
 - Screenshot Capture: It takes periodic screenshots of the user's desktop.
-- Webcam Capture: The virus accesses and captures video from the webcam.
+- Webcam Capture: The virus gets access and takes a photo.
 - System Information Gathering: It collects information about the infected computer, such as hardware specifications, operating system details, and installed software.
 - Clipboard Theft: The virus monitors and copies the contents of the clipboard.
 - Data Exfiltration: All the gathered information is sent to a specified email address.
